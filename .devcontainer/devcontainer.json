@@ -1,0 +1,23 @@
+{
+  "name": "google calendar reservation",
+  "dockerComposeFile": ["../compose.yml"],
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "forwardPorts": [3000],
+  "workspaceFolder": "/workspace",
+  "remoteUser": "root",
+  "containerUser": "root"
+}
