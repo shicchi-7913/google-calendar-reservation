@@ -5,10 +5,10 @@ import { Calendar } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { SignIn } from './components/SignIn';
 import { SignOut } from './components/SignOut';
+import { UserIcon } from './components/UserIcon';
 
 export default function Navbar() {
   const { data: session } = useSession();
-  console.log(session);
 
   return (
     <nav className="bg-white shadow-sm">
@@ -19,7 +19,14 @@ export default function Navbar() {
             <span className="text-xl font-semibold text-gray-900">MeetSync</span>
           </Link>
 
-          <div className="flex items-center space-x-4">{session ? <SignOut /> : <SignIn />}</div>
+          {session ? (
+            <div className="flex items-center space-x-4">
+              <UserIcon imageUrl={session.user.image} name={session.user.name} />
+              <SignOut />
+            </div>
+          ) : (
+            <SignIn />
+          )}
         </div>
       </div>
     </nav>
