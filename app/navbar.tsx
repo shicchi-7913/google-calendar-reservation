@@ -4,8 +4,7 @@ import Link from 'next/link';
 import { Calendar } from 'lucide-react';
 import { useSession } from 'next-auth/react';
 import { SignIn } from './components/SignIn';
-import { SignOut } from './components/SignOut';
-import { UserIcon } from './components/UserIcon';
+import { UserDropDown } from './components/UserDropDown';
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -21,8 +20,7 @@ export default function Navbar() {
 
           {session ? (
             <div className="flex items-center space-x-4">
-              <UserIcon imageUrl={session.user.image} name={session.user.name} />
-              <SignOut />
+              <UserDropDown imageUrl={session.user.image} name={session.user.name} />
             </div>
           ) : (
             <SignIn />
