@@ -24,6 +24,7 @@ export default function Calendar() {
         weekday: 'short', // 曜日（例: 月, 火）
         day: 'numeric', // 日付（例: 23）
       }}
+      height="600px"
 
       // 読み込んだ予定をここに表示する
       // events={[
