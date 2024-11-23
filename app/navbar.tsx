@@ -1,6 +1,7 @@
-import React from 'react';
-import { Calendar, LogIn } from 'lucide-react';
 import Link from 'next/link';
+import { Calendar } from 'lucide-react';
+import { useSession } from 'next-auth/react';
+import { SignIn } from './components/SignIn';
 
 export default function Navbar() {
   return (
@@ -13,13 +14,9 @@ export default function Navbar() {
           </Link>
 
           <div className="flex items-center space-x-4">
-            <Link
-              href="/schedules"
-              className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              <LogIn className="h-4 w-4" />
-              <span>Googleでログイン</span>
-            </Link>
+            <div className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              <SignIn />
+            </div>
             {/* {isAuthenticated ? (
               <>
                 <Link
